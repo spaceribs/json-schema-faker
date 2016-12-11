@@ -29,7 +29,7 @@ var numberType: FTypeGenerator = function numberType(value: INumberSchema): numb
     return Math.floor(random.number(min, max) / multipleOf) * multipleOf;
   }
 
-  return random.number(min, max, undefined, undefined, true);
+  return random.number(min, max);
 };
 
 export = numberType;

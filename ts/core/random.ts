@@ -17,7 +17,7 @@ function pick<T>(collection: T[]): T {
  * @returns {T[]}
  */
 function shuffle<T>(collection: T[]): T[] {
-  var tmp: T,
+  let tmp: T,
     key: number,
     copy: T[] = collection.slice(),
     length: number = collection.length;
@@ -34,15 +34,6 @@ function shuffle<T>(collection: T[]): T[] {
 }
 
 /**
- * These values determine default range for random.number function
- *
- * @type {number}
- */
-var MIN_NUMBER = -100,
-    MAX_NUMBER = 100;
-
-
-/**
  * Returns a random integer between min (inclusive) and max (inclusive)
  * Using Math.round() will give you a non-uniform distribution!
  * @see http://stackoverflow.com/a/1527820/769384
@@ -53,7 +44,7 @@ function getRandomInt(min: number, max: number): number {
 
 /**
  * Returns a random true or false.
- * @param {number} [weight] - Defaults to 0.5, increase this value to increase the likehood of true results.
+ * @param {number} [weight=0.5] - Defaults to 0.5, increase this value to increase the likehood of true results.
  * @returns {boolean}
  */
 function boolean(weight = 0.5) {
@@ -63,31 +54,17 @@ function boolean(weight = 0.5) {
 /**
  * Generates random number according to parameters passed
  *
- * @param min
- * @param max
- * @param defMin
- * @param defMax
- * @param hasPrecision
+ * @param {number} [min=-100] - Minimum random value
+ * @param {number} [max=100] - Maximum random value
  * @returns {number}
  */
-function number(min?: number, max?: number, defMin?: number, defMax?: number, hasPrecision: boolean = false): number {
-  defMin = typeof defMin === 'undefined' ? MIN_NUMBER : defMin;
-  defMax = typeof defMax === 'undefined' ? MAX_NUMBER : defMax;
-
-  min = typeof min === 'undefined' ? defMin : min;
-  max = typeof max === 'undefined' ? defMax : max;
+function number(min = -100, max = 100): number {
 
   if (max < min) {
     max += min;
   }
 
-  var result: number = getRandomInt(min, max);
-
-  if (!hasPrecision) {
-    return parseInt(result + '', 10);
-  }
-
-  return result;
+  return getRandomInt(min, max);
 }
 
 export = {

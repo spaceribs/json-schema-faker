@@ -79,7 +79,7 @@ var arrayType: FTypeGenerator = function arrayType(value: IArraySchema, path: Sc
     }
   }
 
-  var length: number = random.number(minItems, maxItems, 1, 5),
+  var length: number = random.number(minItems || 1, maxItems || 5),
       // TODO below looks bad. Should additionalItems be copied as-is?
       sample: Object = typeof value.additionalItems === 'object' ? value.additionalItems : {};
 

@@ -4,6 +4,7 @@ import dateTime = require('../generators/dateTime');
 import coreFormat = require('../generators/coreFormat');
 import format = require('../api/format');
 import option = require('../api/option');
+import random = require('../core/random');
 
 import container = require('../class/Container');
 var randexp = container.get('randexp');
@@ -55,7 +56,7 @@ var stringType: FTypeGenerator = function stringType(value: IStringSchema): stri
   }
 
   while (output.length < minLength) {
-    output += Math.random() > 0.7 ? thunk() : randexp('.+');
+    output += random.boolean(0.7) ? thunk() : randexp('.+');
   }
 
   if (output.length > maxLength) {

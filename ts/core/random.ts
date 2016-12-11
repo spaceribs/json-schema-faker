@@ -52,6 +52,15 @@ function getRandomInt(min: number, max: number): number {
 }
 
 /**
+ * Returns a random true or false.
+ * @param {number} [weight] - Defaults to 0.5, increase this value to increase the likehood of true results.
+ * @returns {boolean}
+ */
+function boolean(weight = 0.5) {
+  return Math.random() < weight;
+}
+
+/**
  * Generates random number according to parameters passed
  *
  * @param min
@@ -85,4 +94,5 @@ export = {
   pick: pick,
   shuffle: shuffle,
   number: number,
+  boolean: boolean
 };

@@ -39,7 +39,8 @@
     "chance": "^1.0.4",
     "deref": "^0.6.4",
     "faker": "^3.1.0",
-    "randexp": "^0.4.3"
+    "prando": "^2.1.0",
+    "randexp": "^0.4.4"
   },
   "devDependencies": {
     "browserify": "^13.1.1",

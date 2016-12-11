@@ -1,10 +1,12 @@
+import random = require('../core/random');
+
 /**
  * Generates randomized boolean value.
  *
  * @returns {boolean}
  */
-function booleanGenerator(): boolean {
-  return Math.random() > 0.5;
+function booleanGenerator() {
+  return random.boolean();
 }
 
 export = booleanGenerator;
